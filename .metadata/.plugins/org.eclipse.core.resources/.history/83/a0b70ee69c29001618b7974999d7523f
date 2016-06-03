@@ -1,0 +1,11 @@
+package magazzino;
+
+import java.net.DatagramSocket;
+
+public class SkeletonThread extends Thread {
+
+	public SkeletonThread(DatagramPacket p, DatagramSocket socket, Skeleton skeleton) {
+		dati=
+	}
+
+}

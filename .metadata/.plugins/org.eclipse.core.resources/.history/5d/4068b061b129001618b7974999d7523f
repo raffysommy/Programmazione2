@@ -1,0 +1,10 @@
+package coda;
+
+
+public interface Coda {
+	public int pop();
+	public void push(int object);
+	public boolean isempty();
+	public boolean isfull();
+	public int lenght();
+}

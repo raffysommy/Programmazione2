@@ -1,0 +1,33 @@
+package server;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ServerReale extends Skeleton implements InterfacciaServer {
+    private ReentrantLock lock=new ReentrantLock();
+	private int counter;
+	@Override
+	public void sum(int i) {
+		lock.lock();
+		counter+=i;
+		System.out.println("ServerReale Counter:" +counter);
+		lock.unlock();
+
+	}
+
+	@Override
+	public int get() {
+		lock.lock();
+		int valore=counter;
+		lock.unlock();
+		return valore;
+	}
+
+	@Override
+	public int inc() {
+		lock.lock();
+		int valore=++counter;
+		lock.unlock();
+		return valore;
+	}
+
+}

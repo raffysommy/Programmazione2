@@ -1,0 +1,37 @@
+package magazzino;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public abstract class Skeleton implements IMagazzino{
+	private DatagramSocket socket;
+	public Skeleton(){
+		try {
+			this.socket=new DatagramSocket(3000);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void run(){
+		while(true){
+			byte[] dati=new byte[65550];
+			DatagramPacket packet=new DatagramPacket(dati,dati.length);
+			try {
+				socket.receive(packet);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			SkeletonThread leggero=new SkeletonThread(packet,socket,this);
+			leggero.start();
+		}
+	}
+	@Override
+	public void deposita(String name, int id) {}
+	@Override
+	public int preleva(String name) {return 0;}
+	
+}

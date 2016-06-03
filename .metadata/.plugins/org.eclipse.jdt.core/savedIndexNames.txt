@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+C:\Users\Raffaele\p2\.metadata\.plugins\org.eclipse.jdt.core
+724181540.index

@@ -1,0 +1,52 @@
+package client;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+import magazzino.IMagazzino;
+
+public class Stub implements IMagazzino {
+	private Socket s;
+	
+	@Override
+	public void deposita(String name, int id) {		
+		try {
+			DataInputStream din=new DataInputStream(s.getInputStream());
+			DataOutputStream dos=new DataOutputStream(s.getOutputStream());
+			dos.writeUTF("PUT");
+			dos.writeUTF(name);
+			dos.writeInt(id);
+			din.readUTF();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+
+	@Override
+	public int preleva(String name) {
+		try {
+			DataInputStream din=new DataInputStream(s.getInputStream());
+			DataOutputStream dos=new DataOutputStream(s.getOutputStream());
+			dos.writeUTF("POP");
+			dos.writeUTF(name);
+			return din.readInt();
+			} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return 0;
+	}
+
+	public Stub() {
+		try {
+			s=new Socket("127.0.0.1",12345);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,29 @@
+package client;
+
+
+import magazzino.IMagazzino;
+import magazzino.MagazzinoReale;
+
+public class Client {
+
+	public static void main(String[] args) {
+		IMagazzino magazzino=new Stub();
+		magazzino.deposita("smartphone",3);
+		magazzino.preleva("smartphone");
+		/*for(int i=0;i<10;i++)
+		new Thread(){
+			public void run(){
+				try {
+					Thread.sleep((long) (Math.random()*2)+2);
+					magazzino.deposita("smartphone", 2);
+					magazzino.preleva("laptop");
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		}.start();*/
+	}
+
+}

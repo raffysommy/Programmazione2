@@ -1,0 +1,19 @@
+package client;
+
+import magazzino.IMagazzino;
+
+public class Stub implements IMagazzino {
+
+	@Override
+	public void deposita(String name, int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int preleva(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

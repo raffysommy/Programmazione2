@@ -1,0 +1,28 @@
+package client;
+
+import coda.Coda;
+import coda.CodaSyncronized;
+import magazzino.IMagazzino;
+import magazzino.MagazzinoReale;
+
+public class Client {
+
+	public static void main(String[] args) {
+		IMagazzino magazzino=new MagazzinoReale();
+		for(int i=0;i<10;i++)
+		new Thread(){
+			public void run(){
+				try {
+					Thread.sleep((long) (Math.random()*10));
+					magazzino.deposita("smartphone", 2);
+					magazzino.preleva("smartphone");
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		}.start();
+	}
+
+}

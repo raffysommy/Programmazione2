@@ -1,0 +1,18 @@
+package client;
+
+import coda.Coda;
+import coda.CodaSyncronized;
+
+public class Client {
+
+	public static void main(String[] args) {
+		Coda<String> c=new CodaSyncronized<String>(5);
+		new Thread(){
+			public void run(){
+				c.push("ciaone");
+				System.out.println(c.pop());
+			}
+		}.start();
+	}
+
+}

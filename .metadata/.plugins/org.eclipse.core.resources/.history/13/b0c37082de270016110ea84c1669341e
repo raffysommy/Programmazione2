@@ -1,0 +1,13 @@
+package client;
+
+import server.InterfacciaServer;
+
+public class Client {
+	private static InterfacciaServer proxy;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		proxy=new Stub();
+		proxy.sum(4);
+	}
+
+}

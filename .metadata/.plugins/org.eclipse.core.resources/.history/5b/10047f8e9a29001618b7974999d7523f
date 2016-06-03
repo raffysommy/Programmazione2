@@ -1,0 +1,5 @@
+package coda;
+
+public class CodaSyncronized implements Coda<T> {
+
+}

@@ -1,0 +1,25 @@
+package client;
+
+import magazzino.IMagazzino;
+
+public class ClientB {
+
+		public static void main(String[] args) {
+				IMagazzino magazzino=new Stub();
+				new Thread(){
+					public void run(){
+						try {
+						for(int j=0;j<3;j++)
+							this.wait((((int)Math.random()*3)%3+2));
+							String articolo=((int)Math.random()*2)%2==0?"smartphone":"laptop";
+							int id=magazzino.preleva(articolo);
+							System.out.println("Ho prelevato: "+articolo+" Con id:"+id);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}				
+					}
+				}.start();
+		}
+
+
+}

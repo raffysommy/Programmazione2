@@ -1,0 +1,27 @@
+package magazzino;
+
+import coda.Coda;
+import coda.CodaSyncronized;
+
+public class MagazzinoReale extends Skeleton implements IMagazzino {
+	private Coda<Integer> smartphone;
+	private Coda<Integer> laptop;
+	@Override
+	public void deposita(String name, int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int preleva(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public MagazzinoReale() {
+		super();
+		this.smartphone = new CodaSyncronized<Integer>(5);
+		this.laptop = new CodaSyncronized<Integer>(5);
+	}
+
+}

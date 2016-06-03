@@ -1,0 +1,36 @@
+package magazzino;
+
+import coda.Coda;
+import coda.CodaSyncronized;
+
+public class MagazzinoReale extends Skeleton implements IMagazzino {
+	private Coda<Integer> smartphone;
+	private Coda<Integer> laptop;
+	@Override
+	public void deposita(String name, int id) {
+		if(name.equals("laptop")){
+			laptop.push(id);
+		}
+		else if(name.equals("smartphone")){
+			smartphone.push(id);
+		}
+	}
+
+	@Override
+	public int preleva(String name) {
+		if(name.equals("laptop")){
+			return laptop.pop();
+		}
+		else if(name.equals("smartphone")){
+			return smartphone.pop();
+		}
+		return 0;
+	}
+
+	public MagazzinoReale() {
+		super();
+		this.smartphone = new CodaSyncronized<Integer>(5);
+		this.laptop = new CodaSyncronized<Integer>(5);
+	}
+
+}
