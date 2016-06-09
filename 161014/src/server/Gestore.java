@@ -30,7 +30,7 @@ public class Gestore implements IGestore {
 			Vector<ISottoscrittore> sottoscrittori=subscriber.get(topic);
 			if(sottoscrittori!=null){
 				for(int i=0;i<sottoscrittori.size();i++){
-					sottoscrittori.get(i).onMessage(msg);
+					sottoscrittori.get(i).getListner().onMessage(msg);
 				}
 			}
 		} catch (InterruptedException e1) {

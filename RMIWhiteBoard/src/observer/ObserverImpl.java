@@ -8,6 +8,10 @@ import whiteboard.IShape;
 import whiteboard.IWhiteBoard;
 
 public class ObserverImpl extends UnicastRemoteObject implements IObserver {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8962694139377325594L;
 	private IWhiteBoard whiteboard;
 	
 	@Override

@@ -12,12 +12,12 @@ public class Client {
 	public static void main(String args[]){
 		try {
 			Registry remote = LocateRegistry.getRegistry(2000);
-			for(int j=0;j<10;j++)
+			for(int j=0;j<4;j++)
 				new Thread(){
 					public void run(){
 							try {
 								IGestoreSportello gestore=(IGestoreSportello) remote.lookup("gestore");
-								for(int i=0;i<10;i++){
+								for(int i=0;i<2;i++){
 									String risultato=gestore.sottoponiRichiesta((int) (Math.random()*100))?"accettata":"scartata";
 									System.out.println("Thread:"+Thread.currentThread().getName()+" Richiesta "+risultato);
 									Thread.sleep((long) (Math.random()*2+1));
